@@ -49,6 +49,13 @@ This problem was given to me in an interview, and I had 2 hours to come up with 
 - Monitor Thread: Simulates the server process watching the file.
 - Generator Thread: Simulates the remote application writing logs.
 
+### Running the program
+Run by compiling any `javac` compiler (>17) and then running using `java`:
+```bash
+javac Main.java LogMonitor.java LogGenerator.java LogDisplay.java
+java Main
+```
+
 ### The full solution would replace:
 - Swing UI with a web interface
 - Local file access with network communication
