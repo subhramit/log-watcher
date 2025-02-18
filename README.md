@@ -50,7 +50,7 @@ This problem was given to me in an interview, and I had 2 hours to come up with 
 - Generator Thread: Simulates the remote application writing logs.
 
 ### Running the program
-Run by compiling any `javac` compiler (>17) and then running using `java`:
+Run by compiling any `javac` compiler (>=17) and then running using `java`:
 ```bash
 javac Main.java LogMonitor.java LogGenerator.java LogDisplay.java
 java Main
