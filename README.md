@@ -24,22 +24,21 @@ This problem was given to me in an interview, and I had 2 hours to come up with 
 
 ### Key Components:
 
-#### LogMonitor class
-- Acts as the 'server' component but runs locally.
-- Uses `RandomAccessFile` for efficient file reading, especially important for large files.
-- Implements the "last N lines" reading by scanning backwards from file end using seek.
+#### `LogMonitor`
+- Acts as the 'server' component (but runs locally).
+- Uses [`RandomAccessFile`](https://docs.oracle.com/javase/8/docs/api/java/io/RandomAccessFile.html) for efficient file reading (important for large files).
+- Implements the "last N lines" reading by scanning **backwards** from file end using seek.
 - Has a separate monitoring thread that simulates a server continuously watching for changes.
 - [`SwingUtilities.invokeLater(...)`](https://docs.oracle.com/javase/8/docs/api/javax/swing/SwingUtilities.html) causes asynchronous execution on the AWT event dispatching thread.
-- Uses Swing for display (simulating what would be a web client in the full solution).
+- Uses `LogDisplay` for displaying the logs.
 
-
-#### LogDisplay class
-- Simulates what would be the web client in the full solution.
-- Uses Swing instead of HTML/JavaScript for simplicity.
+#### `LogDisplay`
+- Simulates the web client.
+- Uses Swing instead of HTML/JavaScript.
 - Maintains a maximum line limit (1000) to prevent memory issues.
 
 
-#### LogGenerator class
+#### `LogGenerator`
 - Simulates the log-writing application that would run on a remote machine.
 - Uses a separate thread to continuously generate log entries.
 - Demonstrates append-only behavior of a real log file.
@@ -59,5 +58,5 @@ java Main
 ### The full solution would replace:
 - Swing UI with a web interface
 - Local file access with network communication
-- Direct thread communication with WebSocket protocol
+- Direct thread communication with [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol
 - Single display with multiple client support
